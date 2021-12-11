@@ -1,4 +1,6 @@
 import type { NextPage } from 'next'
+import MovieList from "../components/MovieList";
+import Nav from "../components/Nav";
 import Head from 'next/head'
 
 const Home: NextPage = () => {
@@ -11,7 +13,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <div className="bg-slate-700">Hello ContextApi</div>
+        <div className="bg-slate-700 text-white">Hello ContextApi</div>
+        <Nav />
+        <MovieList />
       </main>
     </>
   );
