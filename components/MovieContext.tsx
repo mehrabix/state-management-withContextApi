@@ -1,7 +1,18 @@
 import { useState, createContext } from "react";
 
 
-export const MovieContext = createContext();
+// add types for the context here 
+
+type MovieContextType = {
+    movies: any[];
+    setMovies: React.Dispatch<React.SetStateAction<any[]>>
+}
+
+
+
+export const MovieContext = createContext<MovieContextType>({
+        movies: [],
+        setMovies: () => { }});
 
 type props = {
     children: React.ReactNode
@@ -29,5 +40,9 @@ export const MovieProvider = (props:props) => {
       year: 2010,
     },
   ]);
-  return <MovieContext.Provider value={'That Context Provider Works!'}>{props.children}</MovieContext.Provider>;
+  return (
+    <MovieContext.Provider value={[movies, setMovies]}>
+      {props.children}
+    </MovieContext.Provider>
+  );
 };
