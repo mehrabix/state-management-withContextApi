@@ -7,7 +7,9 @@ const AddMovies = () => {
   const [rating, setRating] = useState("");
   const [year, setYear] = useState("");
 
-  const [movies, setMovies] = useContext(MovieContext);
+  // add usecontext with type valdiation
+    const [movies, setMovies] = useContext(MovieContext);
+    
 
   const updateID = (e: any) => {
     setID(e.target.value);
@@ -22,8 +24,17 @@ const AddMovies = () => {
     setYear(e.target.value);
   };
   const addMovies = (e: any) => {
-      e.preventDefault();
-        setMovies(prevMovies => [...prevMovies, { id:id, title:title, rating:rating, year:year }]);
+     
+    e.preventDefault();
+    if (id.trim() === "" || title.trim() === "" || rating.trim() === "" || year.trim() === "") {
+      alert("Please enter all the fields");
+    } else {
+      setMovies(movies.concat({ id, title, rating, year }));
+      setID("");
+      setTitle("");
+      setRating("");
+      setYear("");
+    }
   };
 
   return (
