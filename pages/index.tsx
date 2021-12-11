@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import MovieList from "../components/MovieList";
 import Nav from "../components/Nav";
 import Head from 'next/head'
+import AddMovies from '../components/addMovies';
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,8 @@ const Home: NextPage = () => {
         <div className="bg-slate-700 text-white">Hello ContextApi</div>
         <Nav />
         <MovieList />
+        <AddMovies />
+
       </main>
     </>
   );
